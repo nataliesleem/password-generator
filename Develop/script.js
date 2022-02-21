@@ -8,7 +8,6 @@ var numberArr = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
 //Assign generate button to prompt window that loops through criteria
 function generatePassword() {
   choiceArr = [];
-
   // 1. prompt the user with the password crieria 
   var numOfCharacters = window.prompt("How many characters would you like your password to contain?");
   // make sure it's between 8-28
@@ -18,7 +17,6 @@ function generatePassword() {
   }
   // validate that it is a number
   while (isNaN(numOfCharacters)) {
-    console.log('data type of \'' + numOfCharacters + '\':' + typeof numOfCharacters);
     window.alert('Password length must be provided as a number.')
     numOfCharacters = window.prompt("How many characters would you like your password to contain?");
   }
@@ -53,22 +51,16 @@ function generatePassword() {
   if (includeUpperCase) {
     choiceArr = choiceArr.concat(upperCaseArr)
   }
-  
-
   //  3. Generate password based on criteria
  var password = '';
  for (var i=0; i < numOfCharacters; i++ ) {
-   var randomLetter = Math.floor(Math.random() *choiceArr.length);
+   var randomLetter = Math.floor(Math.random() * choiceArr.length);
    password = password + choiceArr[randomLetter];
  }
-
-
-
 
   //  4. Display password to the page
   return password;
 }
-
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
